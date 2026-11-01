@@ -1,4 +1,4 @@
-const V='iron-v2',FILES=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
+const V='iron-v3',FILES=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==V&&k!=='inbox').map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',e=>{
@@ -11,6 +11,9 @@ self.addEventListener('fetch',e=>{
     })());return;
   }
   if(r.method!=='GET')return;
+  if(r.mode==='navigate'||u.pathname.endsWith('/index.html')){
+    e.respondWith(fetch(r,{cache:'no-cache'}).then(res=>{const cp=res.clone();caches.open(V).then(c=>c.put('./index.html',cp));return res}).catch(()=>caches.match('./index.html')));return;
+  }
   e.respondWith(caches.match(r,{ignoreSearch:true}).then(hit=>hit||fetch(r).then(res=>{
     if(res&&(res.ok||res.type==='opaque')&&(u.origin===location.origin||/fonts\.(googleapis|gstatic)\.com/.test(u.host))){const cp=res.clone();caches.open(V).then(c=>c.put(r,cp))}
     return res}).catch(()=>caches.match('./index.html'))));
