@@ -10,20 +10,21 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
-<link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#121214;--bg2:#1c1c20;--bg3:#27272d;--line:#34343b;--text:#e8e4dc;--dim:#85868f;--blood:#9c1f29;--blood2:#d63a45;
---display:'Pirata One','UnifrakturCook',Georgia,serif;--body:'Oswald','Arial Narrow',Arial,sans-serif;
+--display:'Oswald','Arial Narrow',Impact,sans-serif;--body:'Oswald','Arial Narrow',Arial,sans-serif;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);color-scheme:dark}
 html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%;background:var(--bg)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{margin:0;min-height:100%;font-family:var(--body);color:var(--text);padding-bottom:calc(96px + env(safe-area-inset-bottom,0px));
-background:radial-gradient(90% 40% at 50% 0,#3a1418 0,transparent 70%),repeating-linear-gradient(135deg,#ffffff05 0 2px,transparent 2px 6px),var(--bg)}
+background:radial-gradient(90% 40% at 50% 0,#3a1418 0,transparent 70%),repeating-linear-gradient(45deg,#ffffff07 0 1px,transparent 1px 8px),repeating-linear-gradient(-45deg,#ffffff07 0 1px,transparent 1px 8px),var(--bg)}
 button{font:inherit;color:inherit;cursor:pointer}
 button:focus-visible,input:focus-visible,.tr:focus-visible{outline:2px solid var(--blood2);outline-offset:2px}
 header{padding:16px 18px 6px;display:flex;align-items:center;gap:12px}
-header svg{width:34px;height:42px;fill:var(--blood2);filter:drop-shadow(0 0 8px #d63a4566)}
-h1{font:400 46px/1 var(--display);margin:0;letter-spacing:1px;text-shadow:0 0 18px #9c1f2999}
+header svg{width:56px;height:30px;fill:var(--blood2);filter:drop-shadow(0 0 8px #d63a4566)}
+#inst{margin-left:auto;background:var(--blood);border:0;padding:6px 12px;font-size:13px;font-weight:600;letter-spacing:.5px;border-radius:3px}
+h1{font:700 34px/1 var(--display);margin:0;letter-spacing:2px;text-transform:uppercase;transform:skewX(-10deg);text-shadow:0 0 18px #9c1f2999}
 #quote{padding:0 18px 12px;color:var(--dim);font-size:15px;letter-spacing:.4px}
 .tabs{display:flex;gap:0;margin:0 18px;border-bottom:1px solid var(--line)}
 .tabs button{background:none;border:0;padding:10px 18px;color:var(--dim);font-size:17px;border-bottom:3px solid transparent;margin-bottom:-1px}
@@ -35,14 +36,14 @@ h1{font:400 46px/1 var(--display);margin:0;letter-spacing:1px;text-shadow:0 0 18
 #info{padding:0 18px 6px;color:var(--dim);font-size:13px;min-height:20px}
 #list{list-style:none;margin:0;padding:0 10px}
 .tr{display:flex;align-items:center;gap:12px;padding:10px 8px;border-bottom:1px solid #222227;cursor:pointer}
-.cv{flex:none;width:46px;height:56px;border-radius:50% 50% 3px 3px/36% 36% 3px 3px;display:grid;place-items:center;font:28px var(--display);color:#ffffffd9;border:1px solid #ffffff22}
+.cv{flex:none;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font:700 24px var(--display);color:#fffffff0;border:2px solid #ffffff2a;box-shadow:inset 0 0 0 2px #0008}
 .t{flex:1;min-width:0}.t b{display:block;font-weight:400;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.t i{font-style:normal;font-size:12px;color:var(--dim)}
 .tr.on{background:linear-gradient(90deg,#2d1519,transparent)}.tr.on b{color:var(--blood2)}
 .hb,.del{background:none;border:0;color:var(--dim);font-size:22px;padding:8px 9px}.hb.on{color:var(--blood2)}.del:hover{color:var(--blood2)}
 .empty{padding:46px 24px;text-align:center;color:var(--dim);line-height:1.5}
 .empty h2{font:400 32px var(--display);color:var(--text);margin:0 0 8px}
 #mini{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:12px;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(24,24,27,.96);backdrop-filter:blur(10px);border-top:2px solid var(--blood);cursor:pointer;z-index:5}
-#mini .cv{width:38px;height:46px;font-size:22px}
+#mini .cv{width:42px;height:42px;font-size:20px}
 #mini .t b{font-size:16px}
 #bar{position:absolute;left:0;top:-2px;height:2px;background:var(--blood2);width:0}
 .pb{flex:none;width:46px;height:46px;border-radius:50%;border:0;background:var(--blood);display:grid;place-items:center}
@@ -50,7 +51,7 @@ h1{font:400 46px/1 var(--display);margin:0;letter-spacing:1px;text-shadow:0 0 18
 #full{position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;padding:calc(10px + env(safe-area-inset-top,0px)) 22px calc(18px + env(safe-area-inset-bottom,0px));background:radial-gradient(100% 50% at 50% 30%,#3a1418 0,transparent 70%),#101012;transform:translateY(100%);transition:transform .3s;overflow-y:auto}
 #full.open{transform:none}
 #close{align-self:flex-start;background:none;border:0;color:var(--dim);font-size:15px;padding:8px 0}
-#big{width:min(62vw,260px);aspect-ratio:46/56;border-radius:50% 50% 6px 6px/36% 36% 6px 6px;display:grid;place-items:center;font:min(30vw,130px) var(--display);margin:6px 0 14px;border:2px solid #ffffff2e;box-shadow:0 0 0 6px #121214,0 0 0 7px var(--blood),0 18px 60px #9c1f2966;position:relative;overflow:hidden}
+#big{width:min(64vw,270px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;font:700 min(30vw,120px) var(--display);margin:6px 0 14px;border:3px solid #ffffff2e;box-shadow:0 0 0 8px #121214,0 0 0 10px var(--blood),0 18px 60px #9c1f2966;position:relative;overflow:hidden}
 .eq{position:absolute;bottom:8px;display:flex;gap:4px;align-items:flex-end;height:30px}
 .eq i{width:5px;height:6px;background:#ffffffaa}
 body.playing .eq i{animation:eq .8s ease-in-out infinite alternate}
@@ -72,8 +73,9 @@ body.drag::before{content:"Брось файлы сюда";position:fixed;inset:
 </head>
 <body>
 <header>
-  <svg viewBox="0 0 24 30" aria-hidden="true"><path d="M10.5 0h3v8H21v3h-7.5v19h-3V11H3V8h7.5z"/></svg>
+  <svg viewBox="0 0 54 28" aria-hidden="true"><path d="M2 4h6v20H2zM10 8h5v12h-5zM15 12h24v4H15zM39 8h5v12h-5zM46 4h6v20h-6z"/></svg>
   <h1>Iron Requiem</h1>
+  <button id="inst" hidden>Установить</button>
 </header>
 <div id="quote"></div>
 <nav class="tabs"><button class="on" data-tab="all">Все</button><button data-tab="fav">Любимые ♥</button></nav>
@@ -122,7 +124,7 @@ const IC={play:'<svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg>',pa
 prev:'<svg viewBox="0 0 24 24"><path d="M6 5h2.5v14H6zM20 5v14L9.5 12z"/></svg>',next:'<svg viewBox="0 0 24 24"><path d="M15.5 5H18v14h-2.5zM4 5l10.5 7L4 19z"/></svg>',
 shuf:'<svg viewBox="0 0 24 24"><path d="M17 3l4 4-4 4V8h-2.6l-3.1 4.4L8.6 16H3v-2h4.6l2.2-3.1L7.6 8H3V6h5.4l3.4 4.7L14.2 6H17zM17 13l4 4-4 4v-3h-2.4l-2.1-3 1.3-1.9L14.6 16H17z"/></svg>',
 rep:'<svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2zM17 17H7v-3l-4 4 4 4v-3h12v-6h-2z"/></svg>'};
-const QUOTES=['Боль временна. Сталь — навсегда.','Ещё один подход. Ещё один трек.','Тишина в зале громче всего в голове.','Не жди вдохновения. Нажми «играть».','Сегодняшний вес — завтрашняя разминка.','Тьма делает тебя тяжелее.'];
+const QUOTES=['Боль временна. Сталь — навсегда.','Ещё один подход. Ещё один трек.','Тишина в зале громче всего в голове.','Не жди вдохновения. Нажми «играть».','Сегодняшний вес — завтрашняя разминка.','Железо не врёт.'];
 $('#quote').textContent=QUOTES[Math.floor(Math.random()*QUOTES.length)];
 const PAL=['#6a141d,#2a0b0f','#44464f,#1c1d22','#74301f,#2b1410','#33404d,#171c22','#561a36,#1f0c16'];
 let tracks=[],cur=null,url=null,db=null,tab='all',sort='new',q='',shuf=0,rep=0,rate=1,S={};
@@ -130,7 +132,7 @@ try{S=JSON.parse(localStorage.iron||'{}');sort=S.sort||sort;shuf=S.shuf|0;rep=S.
 const save=()=>{try{localStorage.iron=JSON.stringify({sort,shuf,rep,rate,last:cur})}catch(e){}};
 const fmt=s=>{if(!isFinite(s))return'0:00';s=Math.floor(s);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
 const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const cvs=t=>{let h=0;for(const c of t.name)h=(h*31+c.charCodeAt(0))>>>0;const[a,b]=PAL[h%PAL.length].split(',');return`background:linear-gradient(160deg,${a},${b})`};
+const cvs=t=>{let h=0;for(const c of t.name)h=(h*31+c.charCodeAt(0))>>>0;const[a,b]=PAL[h%PAL.length].split(',');return`background:radial-gradient(circle,${a} 0 52%,#0b0b0d 53% 57%,${b} 58% 100%)`};
 const ini=t=>esc((t.name.match(/[\p{L}\p{N}]/u)||['†'])[0].toUpperCase());
 $('#pp').innerHTML=$('#mpp').innerHTML=IC.play;$('#prev').innerHTML=IC.prev;$('#next').innerHTML=IC.next;$('#shuf').innerHTML=IC.shuf;$('#rep').innerHTML=IC.rep;
 
@@ -249,6 +251,12 @@ function meta(t){if('mediaSession'in navigator)navigator.mediaSession.metadata=n
 if('mediaSession'in navigator){const h=(a,f)=>{try{navigator.mediaSession.setActionHandler(a,f)}catch(_){}};
   h('play',()=>au.play());h('pause',()=>au.pause());h('previoustrack',()=>step(-1));h('nexttrack',()=>step(1));
   h('seekto',d=>{au.currentTime=d.seekTime});h('seekbackward',()=>{au.currentTime=Math.max(0,au.currentTime-10)});h('seekforward',()=>{au.currentTime+=10})}
+/* установка */
+let dip;const inApp=matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+if(!inApp)$('#inst').hidden=false;
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();dip=e});
+addEventListener('appinstalled',()=>{$('#inst').hidden=true});
+$('#inst').onclick=async()=>{if(dip){dip.prompt();await dip.userChoice;dip=null}else alert(/iphone|ipad|ipod/i.test(navigator.userAgent)?'Нажми «Поделиться» в Safari → «На экран Домой».':'Открой меню браузера ⋮ → «Установить приложение» или «Добавить на главный экран».')};
 try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(_){}
 try{if('serviceWorker'in navigator&&/^https?:/.test(location.protocol))navigator.serviceWorker.register('sw.js').catch(()=>{})}catch(_){}
 init();
