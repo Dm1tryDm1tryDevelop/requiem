@@ -258,7 +258,7 @@ addEventListener('beforeinstallprompt',e=>{e.preventDefault();dip=e});
 addEventListener('appinstalled',()=>{$('#inst').hidden=true});
 $('#inst').onclick=async()=>{if(dip){dip.prompt();await dip.userChoice;dip=null}else alert(/iphone|ipad|ipod/i.test(navigator.userAgent)?'Нажми «Поделиться» в Safari → «На экран Домой».':'Открой меню браузера ⋮ → «Установить приложение» или «Добавить на главный экран».')};
 try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(_){}
-try{if('serviceWorker'in navigator&&/^https?:/.test(location.protocol))navigator.serviceWorker.register('sw.js').catch(()=>{})}catch(_){}
+try{if('serviceWorker'in navigator&&/^https?:/.test(location.protocol)){const had=navigator.serviceWorker.controller;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(had)location.reload()});navigator.serviceWorker.register('sw.js').catch(()=>{})}}catch(_){}
 init();
 </script>
 </body>
