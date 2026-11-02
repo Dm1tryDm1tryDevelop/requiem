@@ -122,6 +122,36 @@ body.drag::before{content:"Брось файлы сюда";position:fixed;inset:
 .exa{display:flex;gap:8px;margin-top:6px}.exa button{background:none;border:1px solid var(--line);color:var(--dim);padding:4px 10px;border-radius:3px;font-size:13px}
 .lg{margin-top:16px}.lg h3{font:700 18px var(--display);text-transform:uppercase;margin:0 0 6px}
 .lgi{padding:8px 0;border-bottom:1px solid #26262b;font-size:14px;color:var(--dim)}.lgi b{color:var(--text);font-weight:400}
+.wn{display:flex;align-items:center;gap:10px;margin:4px 0 10px}
+.wn button{background:var(--bg3);border:1px solid var(--line);width:44px;height:44px;border-radius:3px;font-size:22px}
+.wn div{flex:1;text-align:center}.wn b{display:block;font:700 20px var(--display)}.wn small{color:var(--dim);font-size:13px}
+.strip{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:10px}
+.ce{background:var(--bg2);border:1px solid var(--line);border-radius:3px;padding:6px 0;display:flex;flex-direction:column;align-items:center;gap:1px;color:var(--dim)}
+.ce span{font-size:12px}.ce b{font:700 18px var(--display);color:var(--text)}.ce i{font-style:normal;font-size:14px;height:16px}
+.ce.me{border-color:var(--blood2)}.ce.ok{background:#2a1417}.ce.ok i{color:var(--blood2)}
+.wact{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.dh small{color:var(--dim);font-size:13px}.dh em.ok{background:var(--blood2)}
+.dc.done{border-left-color:var(--blood2);background:linear-gradient(90deg,#241114,var(--bg2))}
+.mut{color:var(--dim);font-size:14px;margin-top:6px}
+.res{margin-top:8px}.rt{font-size:14px;color:var(--dim);margin-bottom:4px}
+.rx{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px;padding:3px 0;font-size:14px}.rx b{font:600 15px var(--display);text-transform:uppercase}.rx small{color:var(--dim)}.rx span{margin-left:auto;color:var(--dim)}
+.nm{width:100%;margin-top:4px;background:none;border:0;border-bottom:1px solid var(--line);color:var(--dim);font:inherit;font-size:13px;padding:4px 0}
+.qc{display:flex;align-items:center;gap:8px;margin-top:6px;color:var(--dim);font-size:13px}
+.qc button{width:34px;height:34px;border-radius:3px;border:1px solid var(--line);background:var(--bg3);font-size:18px}
+.qc b{font-size:18px;color:var(--text);min-width:18px;text-align:center}
+.qc input{width:56px;background:var(--bg);border:1px solid var(--line);color:var(--text);padding:6px;border-radius:3px;font:inherit;font-size:16px;text-align:center}
+.dx{background:none;border:0;color:var(--dim);float:right;padding:0 6px;font-size:16px}
+.epic{text-align:center;background:radial-gradient(100% 60% at 50% 0,#4a161c,var(--bg2) 70%)}
+.eh{font:700 15px var(--display);letter-spacing:3px;color:var(--dim)}
+.er{font:700 34px var(--display);text-shadow:0 0 20px #d63a45;animation:pop .6s}
+.ebig span{font:700 68px var(--display);color:var(--blood2);text-shadow:0 0 30px #d63a45aa}.ebig small{display:block;color:var(--dim)}
+.egrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}.egrid div{background:#0003;border:1px solid var(--line);border-radius:3px;padding:8px 4px}
+.egrid b{display:block;font-size:16px;word-break:break-word}.egrid small{color:var(--dim);font-size:11px}
+#epc{font:600 18px var(--display);color:var(--text)}#epd{color:var(--blood2);font-size:15px}
+@keyframes pop{0%{transform:scale(.5);opacity:0}70%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+.mh{margin-top:14px;font:700 15px var(--display);letter-spacing:2px;color:var(--blood2);text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:3px}
+.it{margin-top:8px}.ith{display:flex;align-items:center}.ith b{flex:1;font:600 17px var(--display);cursor:pointer}
+.addx{margin-top:12px}.mut .chip{margin:4px 4px 0 0;padding:6px 10px}
 </style>
 </head>
 <body>
@@ -188,9 +218,16 @@ body.drag::before{content:"Брось файлы сюда";position:fixed;inset:
 <div class="md" id="pls" hidden><div class="card"><h3>В плейлист</h3><div class="chips" id="plsl"></div><button class="chip" id="plsn">+ Новый плейлист</button><button class="chip act" id="plsx">Готово</button></div></div>
 <div class="md" id="dm" hidden><div class="card"><h3 id="dmt">День</h3>
 <div class="chips"><button class="chip" id="dmT">Тренировка</button><button class="chip" id="dmR">Отдых</button></div>
-<div id="dmw" style="display:flex;flex-direction:column;gap:12px"><input id="dmn" placeholder="Название: грудь, ноги…"><textarea id="dme" rows="5" placeholder="Упражнения, каждое с новой строки. Подходы так: Жим лёжа 4×8 (без цифр — 3 подхода)"></textarea><p>Плейлист для этого дня:</p><div class="chips" id="dmp"></div></div>
+<div id="dmw" style="display:flex;flex-direction:column;gap:12px"><input id="dmn" placeholder="Название: грудь, ноги…"><textarea id="dme" rows="5" placeholder="Мышцы по плану, каждая с новой строки (Спина, Грудь…). Упражнения добавляются в самой тренировке"></textarea><p>Плейлист для этого дня:</p><div class="chips" id="dmp"></div></div>
 <button class="chip act" id="dmok">Сохранить</button><button class="chip" id="dmc">Очистить день</button></div></div>
 <div class="md" id="hm" hidden><div class="card"><h3 id="hmt"></h3><div id="hml"></div><button class="chip" id="hmx">Закрыть</button></div></div>
+<div class="md" id="ep" hidden><div class="card epic"><div class="eh">ИТОГИ НЕДЕЛИ</div><div class="eh" id="eph"></div><div class="er" id="epr"></div>
+<div class="ebig"><span id="epn">0</span><small>кг поднято за неделю</small></div><div id="epc"></div><div id="epd"></div><div class="egrid" id="epg"></div><button class="chip act" id="epx">Закрыть</button></div></div>
+<div class="md" id="ad" hidden><div class="card"><h3>Новое упражнение</h3>
+<p>1. Мышца</p><input id="adm" placeholder="Грудь, спина, ноги…"><div class="chips" id="adc"></div>
+<p>2. Название упражнения</p><input id="adn" placeholder="Жим лёжа, тяга блока…"><div class="chips" id="ade"></div>
+<p>Подходы, повторы и вес добавишь дальше, подходов может быть один или несколько.</p>
+<button class="chip act" id="adok">Добавить</button></div></div>
 <div id="end" hidden><h2>Время вышло</h2><p>Звук остановлен. Можно закрыть приложение.</p><button class="chip" id="endx">Закрыть</button></div>
 <audio id="au" preload="auto"></audio>
 
@@ -422,9 +459,10 @@ $('#asx').onclick=()=>$('#as').hidden=true;
 /* плейлисты и план недели */
 const ORD=['music','video','plan'],DF=['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресенье'];
 const dayIdx=()=>(new Date().getDay()+6)%7,dkey=()=>{const d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()};
-let PL={lists:[],plan:[],td:{},last:{},log:[],wk:null};
+let PL={lists:[],plan:[],td:{},last:{},log:[],wk:null,nm:{},shown:"",sw:""};
 try{const s=JSON.parse(localStorage.ironpl||'null');if(s)PL=Object.assign(PL,s)}catch(e){}
 while(PL.plan.length<7)PL.plan.push({});
+PL.log.forEach(x=>{if(!x.it){x.it=Object.keys(x.ex||{}).map(k=>({m:k,n:(x.nm&&x.nm[k])||'',sets:x.ex[k]}));delete x.ex;delete x.nm}});
 function pls(){try{localStorage.ironpl=JSON.stringify(PL)}catch(e){}}
 const curPL=()=>PL.lists.find(l=>'pl:'+l.id===tab);
 function renderTabs(){
@@ -449,40 +487,137 @@ function renderBanner(){const b=$('#tb'),d=PL.plan[dayIdx()]||{};
   b.innerHTML=left+(pl&&d.m==='t'?`<button class="chip" data-pp="${pl.id}">▶ ${esc(pl.name)}</button>`:'')}
 setInterval(()=>{if(PL.wk){const t=fmtT((Date.now()-PL.wk.t)/1000);document.querySelectorAll('[data-wkt]').forEach(x=>x.textContent=t)}},1000);
 $('#tb').onclick=e=>{const p=e.target.closest('[data-pp]');if(p){playList(p.dataset.pp);return}if(e.target.closest('[data-o]'))setSec('plan')};
+const DN=['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
+let wOff=0;
+const monOf=off=>{const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-((d.getDay()+6)%7)+off*7);return d};
+const addD=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
+const kd=d=>d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
+const startOf=x=>x.s||(x.ts-(x.dur||0)*1000);
+const logsOn=key=>PL.log.filter(x=>kd(new Date(startOf(x)))===key);
+const fdate=d=>d.toLocaleDateString('ru',{day:'numeric',month:'short'});
+const ftime=ms=>new Date(ms).toLocaleTimeString('ru',{hour:'2-digit',minute:'2-digit'});
+const num=v=>parseFloat(String(v).replace(',','.'))||0;
+const kg=v=>Math.round(v).toLocaleString('ru')+' кг';
 const parseEx=t=>(t||'').split('\n').map(s=>s.trim()).filter(Boolean).map(s=>{const m=s.match(/^(.*?)[\s:–-]*(\d+)\s*[x×хX*]\s*(\d+)\s*$/i);return m?{n:m[1].trim()||s,s:Math.min(+m[2],12),r:+m[3]}:{n:s,s:3,r:0}});
-const fsets=e=>{let a=PL.td.ex[e.n];if(!a){const last=PL.last[e.n]||[];a=PL.td.ex[e.n]=Array.from({length:e.s},(_,j)=>({w:last[j]?last[j][0]:(last.length?last[last.length-1][0]:''),r:last[j]?last[j][1]:(e.r||''),k:0}))}return a};
-function renderPlan(){const k=dkey();if(PL.td.d!==k)PL.td={d:k,ex:{}};
-  let tr=0,rs=0;const ti=dayIdx();
-  const exHtml=(d,me)=>{const L=parseEx(d.ex);if(!L.length)return'';
-    if(!me)return'<ul class="ex">'+L.map(e=>`<li>${esc(e.n)} <span style="color:var(--dim)">${e.s}×${e.r||'?'}</span></li>`).join('')+'</ul>';
-    return L.map(e=>{const a=fsets(e),n=esc(e.n);
-      return`<div class="exn"><b data-h="${n}">${n}</b><span>${e.s}×${e.r||'?'}</span></div>`+a.map((s,j)=>`<div class="sset"><i>${j+1}</i><input inputmode="decimal" placeholder="кг" value="${esc(String(s.w))}" data-e="${n}" data-j="${j}" data-f="w"><input inputmode="numeric" placeholder="повт" value="${esc(String(s.r))}" data-e="${n}" data-j="${j}" data-f="r"><button class="ok${s.k?' on':''}" data-k="1" data-e="${n}" data-j="${j}">✓</button></div>`).join('')+`<div class="exa"><button data-add="${n}">+ подход</button><button data-rm="${n}">− подход</button></div>`}).join('')};
-  const lg=PL.log.slice(0,8).map(x=>`<div class="lgi"><b>${new Date(x.ts).toLocaleDateString('ru',{weekday:'short',day:'numeric',month:'short'})}</b> · ${esc(x.t)} · ${fmtT(x.dur)} · ${x.sets} подх. · ${Math.round(x.vol).toLocaleString('ru')} кг</div>`).join('');
-  const logHtml=lg?'<div class="lg"><h3>История тренировок</h3>'+lg+'</div>':'';
-  $('#days').innerHTML=PL.plan.map((d,i)=>{const me=i===ti;if(d.m==='t')tr++;if(d.m==='r')rs++;
-    const st=d.m==='r'?'Отдых':d.m==='t'?(d.t||'Тренировка'):'Не задано',pl=PL.lists.find(l=>l.id===d.pl);
-    const wk=me&&(d.m==='t'||PL.wk)?(PL.wk?`<div class="wk"><span class="tm2" data-wkt>${fmtT((Date.now()-PL.wk.t)/1000)}</span><button class="chip act" data-we="1">■ Завершить</button></div>`:'<div class="wk"><button class="chip act" data-ws="1">▶ Начать тренировку</button></div>'):'';
-    return `<div class="dc${me?' me':''}${d.m==='r'?' rest':''}"><div class="dh"><b>${DF[i]}</b>${me?'<em>СЕГОДНЯ</em>':''}<span class="st">${esc(st)}</span></div>${d.m==='t'&&pl?`<div class="pl">♫ ${esc(pl.name)}<button class="chip" data-pp="${pl.id}">▶</button></div>`:''}${wk}${d.m==='t'?exHtml(d,me):''}<button class="ed" data-ed="${i}">Изменить</button></div>`}).join('')+logHtml;
-  $('#psum').textContent=tr+' трен. · '+rs+' отдыха'+(tr+rs<7?' · не задано: '+(7-tr-rs):'')}
-function finishWk(){if(!PL.wk||!confirm('Завершить тренировку?'))return;
-  const dur=Math.floor((Date.now()-PL.wk.t)/1000),ex={};let vol=0,sets=0;
-  for(const n in PL.td.ex){const done=PL.td.ex[n].filter(x=>x.k).map(x=>[x.w,x.r]);if(done.length){ex[n]=done;done.forEach(x=>{vol+=(parseFloat(String(x[0]).replace(',','.'))||0)*(parseInt(x[1])||0);sets++})}}
-  const d=PL.plan[PL.wk.day]||{};PL.log.unshift({ts:Date.now(),t:d.t||'Тренировка',dur,ex,vol,sets});PL.log=PL.log.slice(0,200);
-  PL.wk=null;PL.td={d:dkey(),ex:{}};pls();renderPlan();renderBanner()}
-function openHM(n){$('#hmt').textContent=n;
-  $('#hml').innerHTML=PL.log.filter(x=>x.ex[n]).slice(0,10).map(x=>`<div class="lgi"><b>${new Date(x.ts).toLocaleDateString('ru',{day:'numeric',month:'short'})}</b> · ${x.ex[n].map(s=>(s[0]||'—')+'×'+(s[1]||'—')).join(' · ')}</div>`).join('')||'<p>Пока нет записей. Отмечай подходы галочкой и завершай тренировку.</p>';
+const ik=i=>i.m+'|'+i.n;
+const DEFM=['Грудь','Спина','Ноги','Плечи','Бицепс','Трицепс','Пресс'];
+function muscles(){const q=new Set(),d=PL.plan[dayIdx()]||{};parseEx(d.ex).forEach(e=>q.add(e.n));PL.td.it.forEach(i=>i.m&&q.add(i.m));PL.log.forEach(x=>x.it.forEach(i=>i.m&&q.add(i.m)));DEFM.forEach(m=>q.add(m));return[...q].slice(0,14)}
+function exNames(m){const q=new Set();PL.td.it.forEach(i=>i.m===m&&i.n&&q.add(i.n));PL.log.forEach(x=>x.it.forEach(i=>i.m===m&&i.n&&q.add(i.n)));return[...q].slice(0,10)}
+const exList=d=>{const L=parseEx(d.ex);return L.length?'<ul class="ex">'+L.map(e=>`<li>${esc(e.n)}${PL.nm[e.n]?' <small style="color:var(--dim)">'+esc(PL.nm[e.n])+'</small>':''} <span style="color:var(--dim)">${e.s}×${e.r||'?'}</span></li>`).join('')+'</ul>':''};
+function itToday(d){let h='',pm=null;
+  PL.td.it.forEach((x,i)=>{if(x.m!==pm){h+=`<div class="mh">${esc(x.m||'Без группы')}</div>`;pm=x.m}
+    h+=`<div class="it"><div class="ith"><b data-h="${i}">${esc(x.n||x.m||'Упражнение')}</b><button class="dx" data-itdel="${i}" aria-label="Убрать">✕</button></div>`+x.sets.map((t,j)=>`<div class="sset"><i>${j+1}</i><input inputmode="decimal" placeholder="кг" value="${esc(String(t.w))}" data-i="${i}" data-j="${j}" data-f="w"><input inputmode="numeric" placeholder="повт" value="${esc(String(t.r))}" data-i="${i}" data-j="${j}" data-f="r"><button class="ok${t.k?' on':''}" data-k="1" data-i="${i}" data-j="${j}">✓</button></div>`).join('')+`<div class="exa"><button data-sadd="${i}">+ подход</button><button data-srm="${i}">− подход</button></div></div>`});
+  const plan=parseEx(d.ex).map(e=>e.n);
+  return h+'<button class="chip act addx" data-addx="">+ Упражнение</button>'+(plan.length?'<div class="mut">По плану: '+plan.map(n=>`<button class="chip" data-addx="${esc(n)}">${esc(n)}</button>`).join(' ')+'</div>':'')}
+const resHtml=x=>{const s=startOf(x);let pm=null;return`<div class="res"><div class="rt">${ftime(s)} – ${ftime(s+(x.dur||0)*1000)} · ${fmtT(x.dur||0)} · ${x.sets} подх. · ${kg(x.vol||0)}</div>`+x.it.map(i=>{const hd=i.m!==pm?`<div class="mh">${esc(i.m||'Без группы')}</div>`:'';pm=i.m;return hd+`<div class="rx"><b>${esc(i.n||i.m)}</b><span>${i.sets.map(a=>(a[0]||'—')+'×'+(a[1]||'—')).join(' · ')}</span></div>`}).join('')+'</div>'};
+function recalc(x){let v=0,c=0;x.it.forEach(i=>i.sets.forEach(a=>{v+=num(a[0])*(parseInt(a[1])||0);c++}));x.vol=v;x.sets=c}
+function dayCard(i,d,dt,key,isT,past,lg,done){
+  const pl=PL.lists.find(l=>l.id===d.pl);
+  const st=done?lg[0].t:d.m==='r'?'Отдых':d.m==='t'?(d.t||'Тренировка'):'Не задано';
+  let body='';
+  if(done)body=lg.map(resHtml).join('');
+  else if(isT){if(d.m==='t'||PL.wk)body=PL.wk?`<div class="wk"><span class="tm2" data-wkt>${fmtT((Date.now()-PL.wk.t)/1000)}</span><button class="chip act" data-we="1">■ Завершить</button></div>`:'<div class="wk"><button class="chip act" data-ws="1">▶ Начать тренировку</button></div>';if(d.m==='t')body+=itToday(d)}
+  else if(d.m==='t')body=past?'<div class="mut">Не выполнено</div>':exList(d);
+  const plb=(!done&&d.m==='t'&&pl&&!past)?`<div class="pl">♫ ${esc(pl.name)}<button class="chip" data-pp="${pl.id}">▶</button></div>`:'';
+  const edit=(!done&&!past)?`<button class="ed" data-ed="${i}">Изменить</button>`:'';
+  return`<div class="dc${isT?' me':''}${d.m==='r'?' rest':''}${done?' done':''}" id="dc${i}"><div class="dh"><b>${DF[i]}</b><small>${fdate(dt)}</small>${isT?'<em>СЕГОДНЯ</em>':''}${done?'<em class="ok">✓</em>':''}<span class="st">${esc(st)}</span></div>${plb}${body}${edit}</div>`}
+function renderPlan(){const k=dkey();if(PL.td.d!==k||!PL.td.it){const o=(PL.td.d===k&&PL.td.ex)?PL.td.ex:{};PL.td={d:k,it:Object.keys(o).map(n=>({m:n,n:PL.nm[n]||'',sets:o[n]}))}}
+  const mon=monOf(wOff),today=new Date();today.setHours(0,0,0,0);const tk=kd(today);
+  let sess=0,plan=0;const cells=[],cards=[];
+  for(let i=0;i<7;i++){const d=PL.plan[i]||{},dt=addD(mon,i),key=kd(dt),isT=key===tk,past=dt<today,lg=logsOn(key),done=lg.length>0;
+    if(d.m==='t')plan++;if(done)sess++;
+    const stt=done?'ok':past&&d.m==='t'?'miss':d.m==='r'?'rest':'';
+    cells.push(`<button class="ce${isT?' me':''} ${stt}" data-cell="${i}"><span>${DN[i]}</span><b>${dt.getDate()}</b><i>${done?'✓':stt==='miss'?'✕':stt==='rest'?'·':''}</i></button>`);
+    cards.push(dayCard(i,d,dt,key,isT,past,lg,done))}
+  const lab=wOff===0?'Эта неделя':wOff===-1?'Прошлая неделя':wOff===1?'Следующая неделя':wOff<0?(-wOff)+' нед. назад':'через '+wOff+' нед.';
+  const hist=PL.log.slice(0,10).map(x=>{const s=startOf(x);return`<div class="lgi"><b>${new Date(s).toLocaleDateString('ru',{weekday:'short',day:'numeric',month:'short'})} ${ftime(s)}</b> · ${esc(x.t)} · ${fmtT(x.dur||0)} · ${x.sets} подх. · ${kg(x.vol||0)}<button class="dx" data-dl="${x.ts}" aria-label="Удалить">✕</button></div>`}).join('');
+  $('#days').innerHTML=`<div class="wn"><button data-wn="-1" aria-label="Неделя назад">‹</button><div><b>${fdate(mon)} – ${fdate(addD(mon,6))}</b><small>${lab}</small></div><button data-wn="1" aria-label="Неделя вперёд">›</button></div><div class="strip">${cells.join('')}</div><div class="wact"><button class="chip" data-ep="1">Итоги недели</button><button class="chip" data-word="1">Сохранить в Word</button>${wOff?'<button class="chip" data-wt="1">К сегодня</button>':''}</div>`+cards.join('')+(hist?'<div class="lg"><h3>История тренировок</h3>'+hist+'</div>':'');
+  $('#psum').textContent=plan?sess+' из '+plan+' тренировок выполнено':'План недели не задан'}
+function finishWk(){if(!PL.wk||!confirm('Завершить тренировку? Результат сохранится и день закроется для правок.'))return;
+  const dur=Math.floor((Date.now()-PL.wk.t)/1000),it=PL.td.it.map(i=>({m:i.m,n:i.n,sets:i.sets.filter(t=>t.k).map(t=>[t.w,t.r])})).filter(i=>i.sets.length);
+  const d=PL.plan[PL.wk.day]||{},x={ts:Date.now(),s:PL.wk.t,t:d.t||'Тренировка',dur,it,vol:0,sets:0};recalc(x);PL.log.unshift(x);PL.log=PL.log.slice(0,300);
+  PL.wk=null;PL.td={d:dkey(),it:[]};wOff=0;pls();renderPlan();renderBanner();
+  const cw=kd(monOf(0));if(PL.sw!==cw&&PL.plan.every((p,i)=>p.m!=='t'||logsOn(kd(addD(monOf(0),i))).length)){PL.sw=cw;pls();showEpic(0)}}
+function openHM(m,n){$('#hmt').textContent=(m?m+(n?' · ':''):'')+(n||'');$('#hm').dataset.m=m;$('#hm').dataset.n=n;
+  $('#hml').innerHTML=PL.log.flatMap(x=>x.it.filter(i=>i.m===m&&i.n===n).map(i=>({x,i}))).slice(0,12).map(({x,i})=>`<div class="lgi"><b>${new Date(startOf(x)).toLocaleDateString('ru',{day:'numeric',month:'short'})}</b> · ${i.sets.map(a=>(a[0]||'—')+'×'+(a[1]||'—')).join(' · ')}<button class="dx" data-hdel="${x.ts}" aria-label="Удалить">✕</button></div>`).join('')||'<p>Пока нет записей. Отмечай подходы галочкой и завершай тренировку.</p>';
   $('#hm').hidden=false}
+$('#hml').onclick=e=>{const b=e.target.closest('[data-hdel]');if(!b)return;const m=$('#hm').dataset.m,n=$('#hm').dataset.n,x=PL.log.find(y=>y.ts===+b.dataset.hdel);if(!x)return;x.it=x.it.filter(i=>!(i.m===m&&i.n===n));recalc(x);pls();openHM(m,n);renderPlan()};
 $('#hmx').onclick=()=>$('#hm').hidden=true;
+/* итоги недели */
+function wstats(off){const mon=monOf(off),a=mon.getTime(),b=addD(mon,7).getTime();const L=PL.log.filter(x=>{const t=startOf(x);return t>=a&&t<b});
+  let vol=0,sets=0,dur=0,best={w:0,n:''};const cnt={};
+  L.forEach(x=>{vol+=x.vol||0;sets+=x.sets||0;dur+=x.dur||0;x.it.forEach(i=>i.sets.forEach(r=>{const w=num(r[0]),k=i.m||i.n;cnt[k]=(cnt[k]||0)+1;if(w>best.w)best={w,n:i.n||i.m}}))});
+  return{n:L.length,vol,sets,dur,best,fav:Object.keys(cnt).sort((p,q)=>cnt[q]-cnt[p])[0]||'',plan:PL.plan.filter(d=>d.m==='t').length,mon}}
+function showEpic(off){const s=wstats(off),p=wstats(off-1),RK=['НА ПЕРЕЗАРЯДКЕ','НОВОБРАНЕЦ','БОЕЦ','ВОИН','ГЛАДИАТОР','ЛЕГЕНДА ЗАЛА'];
+  $('#eph').textContent=fdate(s.mon)+' – '+fdate(addD(s.mon,6));$('#epr').textContent=RK[Math.min(s.n,5)];
+  $('#epc').textContent=s.vol>=6000?'≈ '+(s.vol/6000).toFixed(1)+' слона':s.vol>=1500?'≈ '+(s.vol/1500).toFixed(1)+' легковой машины':s.vol>0?'≈ '+Math.round(s.vol/50)+' мешков цемента':'';
+  const dl=p.vol?Math.round((s.vol-p.vol)/p.vol*100):null;$('#epd').textContent=dl===null?'':(dl>=0?'▲ +':'▼ ')+dl+'% к прошлой неделе';
+  $('#epg').innerHTML=[['Тренировок',s.n+(s.plan?' из '+s.plan:'')],['Время',fmtT(s.dur)],['Подходов',s.sets],['Рекорд веса',s.best.w?s.best.w+' кг':'—'],['Мышца недели',s.fav||'—']].map(x=>`<div><b>${esc(String(x[1]))}</b><small>${x[0]}</small></div>`).join('');
+  $('#ep').hidden=false;const t0=performance.now(),T=1500;
+  const f=t=>{const k=Math.min(1,(t-t0)/T);$('#epn').textContent=Math.round(s.vol*(1-Math.pow(1-k,3))).toLocaleString('ru');if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f);
+  try{navigator.vibrate&&navigator.vibrate([120,60,220])}catch(e){}}
+$('#epx').onclick=()=>$('#ep').hidden=true;
+function epCheck(){const pk=kd(monOf(-1));if(PL.shown===pk)return;PL.shown=pk;pls();if(wstats(-1).n)showEpic(-1)}
+/* экспорт в Word (.docx) */
+const CT=(()=>{const t=[];for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+const crc32=u=>{let c=-1;for(let i=0;i<u.length;i++)c=CT[(c^u[i])&255]^(c>>>8);return(c^-1)>>>0};
+function zip(files,type){const enc=new TextEncoder(),parts=[],cen=[];let off=0;
+  for(const f of files){const nb=enc.encode(f.n),d=enc.encode(f.d),crc=crc32(d),sz=d.length;
+    const h=new DataView(new ArrayBuffer(30));h.setUint32(0,0x04034b50,true);h.setUint16(4,20,true);h.setUint16(6,0x0800,true);h.setUint16(12,0x21,true);h.setUint32(14,crc,true);h.setUint32(18,sz,true);h.setUint32(22,sz,true);h.setUint16(26,nb.length,true);
+    parts.push(new Uint8Array(h.buffer),nb,d);
+    const c=new DataView(new ArrayBuffer(46));c.setUint32(0,0x02014b50,true);c.setUint16(4,20,true);c.setUint16(6,20,true);c.setUint16(8,0x0800,true);c.setUint16(14,0x21,true);c.setUint32(16,crc,true);c.setUint32(20,sz,true);c.setUint32(24,sz,true);c.setUint16(28,nb.length,true);c.setUint32(42,off,true);
+    cen.push(new Uint8Array(c.buffer),nb);off+=30+nb.length+sz}
+  let cs=0;cen.forEach(x=>cs+=x.length);
+  const e=new DataView(new ArrayBuffer(22));e.setUint32(0,0x06054b50,true);e.setUint16(8,files.length,true);e.setUint16(10,files.length,true);e.setUint32(12,cs,true);e.setUint32(16,off,true);
+  return new Blob([...parts,...cen,new Uint8Array(e.buffer)],{type})}
+function docxBlob(){const X=t=>String(t).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  const P=(t,o={})=>`<w:p><w:r><w:rPr>${o.b?'<w:b/>':''}${o.c?`<w:color w:val="${o.c}"/>`:''}<w:sz w:val="${o.z||22}"/></w:rPr><w:t xml:space="preserve">${X(t)}</w:t></w:r></w:p>`;
+  const o=[P('IRON REQUIEM — план тренировок',{b:1,z:40,c:'9C1F29'}),P('Сохранено: '+new Date().toLocaleDateString('ru'),{z:20,c:'666666'}),P(''),P('План недели',{b:1,z:30})];
+  PL.plan.forEach((d,i)=>{o.push(P(DF[i]+' — '+(d.m==='r'?'отдых':d.m==='t'?(d.t||'тренировка'):'не задано'),{b:1}));
+    if(d.m==='t'){parseEx(d.ex).forEach(e=>o.push(P('• '+e.n+(PL.nm[e.n]?' ('+PL.nm[e.n]+')':'')+' — '+e.s+'×'+(e.r||'?'))));const pl=PL.lists.find(l=>l.id===d.pl);if(pl)o.push(P('Плейлист: '+pl.name,{c:'666666'}))}});
+  o.push(P(''),P('Журнал тренировок',{b:1,z:30}));
+  PL.log.slice(0,60).forEach(x=>{const s=startOf(x);o.push(P(new Date(s).toLocaleDateString('ru',{weekday:'long',day:'numeric',month:'long'})+', '+ftime(s)+'–'+ftime(s+(x.dur||0)*1000)+' · '+x.t+' · '+fmtT(x.dur||0),{b:1}));
+    x.it.forEach(i=>o.push(P('• '+(i.m?i.m+' — ':'')+(i.n||'упражнение')+': '+i.sets.map(a=>(a[0]||'—')+'×'+(a[1]||'—')).join(', '))));
+    o.push(P('Итого: '+x.sets+' подходов, '+Math.round(x.vol||0)+' кг',{c:'666666'}))});
+  const NS='xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"',H='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
+  return zip([
+    {n:'[Content_Types].xml',d:H+'<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>'},
+    {n:'_rels/.rels',d:H+'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>'},
+    {n:'word/document.xml',d:H+'<w:document '+NS+'><w:body>'+o.join('')+'<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1000" w:right="1000" w:bottom="1000" w:left="1000"/></w:sectPr></w:body></w:document>'}
+  ],'application/vnd.openxmlformats-officedocument.wordprocessingml.document')}
+async function saveDocx(){const b=docxBlob(),name='plan-trenirovok.docx';
+  try{const f=new File([b],name,{type:b.type});if(/iphone|ipad|ipod/i.test(navigator.userAgent)&&navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f]});return}}catch(e){if(e&&e.name==='AbortError')return}
+  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},3000);
+  alert('Файл «'+name+'» сохранён в загрузки телефона. Откройте его в Word.')}
 $('#days').onclick=e=>{const T=x=>e.target.closest(x);let b;
+  if(b=T('[data-wn]')){wOff+=+b.dataset.wn;renderPlan();return}
+  if(T('[data-wt]')){wOff=0;renderPlan();return}
+  if(T('[data-ep]'))return showEpic(wOff);
+  if(T('[data-word]'))return saveDocx();
+  if(b=T('[data-cell]')){const el=document.getElementById('dc'+b.dataset.cell);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});return}
+  if(b=T('[data-dl]')){if(confirm('Удалить запись этой тренировки? День снова станет доступен для правок.')){PL.log=PL.log.filter(x=>x.ts!==+b.dataset.dl);pls();renderPlan();renderBanner()}return}
   if(b=T('[data-pp]'))return playList(b.dataset.pp);
   if(b=T('[data-ed]'))return openDM(+b.dataset.ed);
   if(T('[data-ws]')){PL.wk={t:Date.now(),day:dayIdx()};pls();renderPlan();renderBanner();return}
   if(T('[data-we]'))return finishWk();
-  if(b=T('[data-h]'))return openHM(b.dataset.h);
-  if(b=T('[data-k]')){const a=PL.td.ex[b.dataset.e],s=a&&a[+b.dataset.j];if(s){s.k=s.k?0:1;if(s.k)PL.last[b.dataset.e]=a.map(x=>[x.w,x.r]);pls();renderPlan()}return}
-  if(b=T('[data-add]')){const a=PL.td.ex[b.dataset.add];if(a&&a.length<15){const l=a[a.length-1]||{};a.push({w:l.w||'',r:l.r||'',k:0});pls();renderPlan()}return}
-  if(b=T('[data-rm]')){const a=PL.td.ex[b.dataset.rm];if(a&&a.length>1){a.pop();pls();renderPlan()}}};
-$('#days').oninput=e=>{const d=e.target.dataset;if(d.f&&PL.td.ex[d.e]){PL.td.ex[d.e][+d.j][d.f]=e.target.value;pls()}};
+  if(b=T('[data-h]')){const i=PL.td.it[+b.dataset.h];if(i)openHM(i.m,i.n);return}
+  if(b=T('[data-k]')){const it=PL.td.it[+b.dataset.i],t=it&&it.sets[+b.dataset.j];if(t){t.k=t.k?0:1;if(t.k)PL.last[ik(it)]=it.sets.map(x=>[x.w,x.r]);pls();renderPlan()}return}
+  if(b=T('[data-sadd]')){const it=PL.td.it[+b.dataset.sadd];if(it&&it.sets.length<20){const l=it.sets[it.sets.length-1]||{};it.sets.push({w:l.w||'',r:l.r||'',k:0});pls();renderPlan()}return}
+  if(b=T('[data-srm]')){const it=PL.td.it[+b.dataset.srm];if(it&&it.sets.length>1){it.sets.pop();pls();renderPlan()}return}
+  if(b=T('[data-itdel]')){if(confirm('Убрать упражнение из сегодняшней тренировки?')){PL.td.it.splice(+b.dataset.itdel,1);pls();renderPlan()}return}
+  if(b=T('[data-addx]'))openAD(b.dataset.addx||'')};
+$('#days').oninput=e=>{const d=e.target.dataset;if(d.f&&d.i!==undefined){const it=PL.td.it[+d.i];if(it&&it.sets[+d.j]){it.sets[+d.j][d.f]=e.target.value;pls()}}};
+/* добавление упражнения: мышца, название, подходы */
+function adDraw(){const m=$('#adm').value.trim();
+  $('#adc').innerHTML=muscles().map(x=>`<button class="chip${x===m?' act':''}" data-c="${esc(x)}">${esc(x)}</button>`).join('');
+  $('#ade').innerHTML=exNames(m).map(x=>`<button class="chip" data-c="${esc(x)}">${esc(x)}</button>`).join('')}
+function openAD(m){$('#adm').value=m;$('#adn').value='';adDraw();$('#ad').hidden=false}
+$('#adm').oninput=adDraw;
+$('#adc').onclick=e=>{const b=e.target.closest('[data-c]');if(b){$('#adm').value=b.dataset.c;adDraw()}};
+$('#ade').onclick=e=>{const b=e.target.closest('[data-c]');if(b)$('#adn').value=b.dataset.c};
+$('#adok').onclick=()=>{const m=$('#adm').value.trim(),n=$('#adn').value.trim();if(!m&&!n){alert('Впиши мышцу или название упражнения');return}
+  const l=(PL.last[m+'|'+n]||[])[0]||['',''],it={m,n,sets:[{w:l[0],r:l[1],k:0}]};let at=-1;PL.td.it.forEach((x,i)=>{if(x.m===m)at=i});
+  if(at<0)PL.td.it.push(it);else PL.td.it.splice(at+1,0,it);pls();$('#ad').hidden=true;renderPlan()};
 let dmDay=0,dmM='t',dmP=null;
 function dmUpd(){$('#dmT').classList.toggle('act',dmM==='t');$('#dmR').classList.toggle('act',dmM==='r');$('#dmw').hidden=dmM==='r';
   $('#dmp').innerHTML=PL.lists.map(l=>`<button class="chip${dmP===l.id?' act':''}" data-p="${l.id}">${esc(l.name)}</button>`).join('')||'<p>Сначала создай плейлист во вкладке «Музыка».</p>'}
@@ -515,7 +650,7 @@ addEventListener('appinstalled',()=>{$('#inst').hidden=true});
 $('#inst').onclick=async()=>{if(dip){dip.prompt();await dip.userChoice;dip=null}else alert(/iphone|ipad|ipod/i.test(navigator.userAgent)?'Нажми «Поделиться» в Safari → «На экран Домой».':'Открой меню браузера ⋮ → «Установить приложение» или «Добавить на главный экран».')};
 try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(_){}
 try{if('serviceWorker'in navigator&&/^https?:/.test(location.protocol)){const had=navigator.serviceWorker.controller;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(had)location.reload()});navigator.serviceWorker.register('sw.js').catch(()=>{})}}catch(_){}
-init();
+init().then(()=>setTimeout(epCheck,800));
 </script>
 </body>
-</html>
+  </html>
