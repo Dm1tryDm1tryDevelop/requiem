@@ -1,0 +1,62 @@
+{
+  "name": "AURION",
+  "short_name": "AURION",
+  "description": "Music. Training. Focus.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "ru",
+  "background_color": "#07070a",
+  "theme_color": "#07070a",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "share_target": {
+    "action": "./share-target",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "files": [
+        {
+          "name": "files",
+          "accept": [
+            "audio/*",
+            "video/*",
+            ".mp3",
+            ".m4a",
+            ".aac",
+            ".ogg",
+            ".opus",
+            ".wav",
+            ".flac",
+            ".mp4",
+            ".m4v",
+            ".mov",
+            ".webm",
+            ".mkv",
+            ".3gp"
+          ]
+        }
+      ]
+    }
+  }
+}
